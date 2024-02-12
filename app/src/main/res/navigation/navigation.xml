@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.example.simplewallpapermanager.MainFragment"
+        android:name="com.example.simplebankmanager.LoginFragment"
         android:label="fragment_default"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/fragment_login">
         <!--<action
             android:id="@+id/action_defaultFragment_to_first_detailsFragment"
             app:destination="@id/detailsFragment" />-->

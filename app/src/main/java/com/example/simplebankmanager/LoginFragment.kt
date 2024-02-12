@@ -2,40 +2,55 @@ package com.example.simplebankmanager
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    private var userNameEditText: EditText? = null
+    private var passwordEditText: EditText? = null
+    private var buttonLogIn: Button? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        userNameEditText = view.findViewById(R.id.username)
+        passwordEditText = view.findViewById(R.id.password)
+        buttonLogIn = view.findViewById(R.id.login_btn)
+
+        buttonLogIn?.setOnClickListener {
+            checkData()
         }
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    private fun checkData() {
+        if (!isRightUserName()) {
+            Toast.makeText(requireContext(), R.string.invalid_username, Toast.LENGTH_LONG).show()
+            return
+        }
+
+        if (!isRightPassword()) {
+            Toast.makeText(requireContext(), R.string.invalid_password, Toast.LENGTH_LONG).show()
+            return
+        }
+
+        loggedIn()
+
     }
 
-    companion object {
+    private fun isRightUserName(): Boolean {
+        return userNameEditText?.text.toString() == DefaultData.user_name
+    }
 
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun isRightPassword(): Boolean {
+        return passwordEditText?.text.toString() == DefaultData.password
+    }
+
+    private fun loggedIn() {
+        Toast.makeText(requireContext(), "logged in", Toast.LENGTH_LONG).show()
     }
 }
