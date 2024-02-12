@@ -10,10 +10,16 @@
         android:name="com.example.simplebankmanager.LoginFragment"
         android:label="fragment_default"
         tools:layout="@layout/fragment_login">
-        <!--<action
-            android:id="@+id/action_defaultFragment_to_first_detailsFragment"
-            app:destination="@id/detailsFragment" />-->
+        <action
+            android:id="@+id/action_loginFragment_to_userMenuFragment"
+            app:destination="@id/MenuFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/MenuFragment"
+        android:name="com.example.simplebankmanager.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
 
 
 </navigation>
