@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SimpleBankManager" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/dark_blue</item>
-        <item name="colorSecondary">@color/yellow</item>
+        <item name="colorSecondary">@color/light_blue</item>
     </style>
 
     <style name="Theme.SimpleBankManager" parent="Base.Theme.SimpleBankManager" />

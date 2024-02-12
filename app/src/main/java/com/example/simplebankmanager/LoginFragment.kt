@@ -3,25 +3,19 @@ package com.example.simplebankmanager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.simplebankmanager.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
-
-    private var userNameEditText: EditText? = null
-    private var passwordEditText: EditText? = null
-    private var buttonLogIn: Button? = null
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentLoginBinding.bind(view)
 
-        userNameEditText = view.findViewById(R.id.username)
-        passwordEditText = view.findViewById(R.id.password)
-        buttonLogIn = view.findViewById(R.id.login_btn)
-
-        buttonLogIn?.setOnClickListener {
+        binding.loginBtn.setOnClickListener {
             checkData()
         }
 
@@ -38,19 +32,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             return
         }
 
-        loggedIn()
+        logIn()
 
     }
 
     private fun isRightUserName(): Boolean {
-        return userNameEditText?.text.toString() == DefaultData.user_name
+        return binding.username.text.toString() == DefaultData.user_name
     }
 
     private fun isRightPassword(): Boolean {
-        return passwordEditText?.text.toString() == DefaultData.password
+        return binding.password.text.toString() == DefaultData.password
     }
 
-    private fun loggedIn() {
+    private fun logIn() {
         Toast.makeText(requireContext(), "logged in", Toast.LENGTH_LONG).show()
+
+        val bundle = Bundle()
+        bundle.putString(MenuFragment.USER_NAME, binding.username.text.toString())
+        findNavController().navigate(R.id.MenuFragment, bundle)
     }
+
+
 }
