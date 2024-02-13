@@ -1,10 +1,12 @@
-package com.example.simplebankmanager
+package com.example.simplebankmanager.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.simplebankmanager.persondata.DefaultPerson
+import com.example.simplebankmanager.R
 import com.example.simplebankmanager.databinding.FragmentLoginBinding
 
 
@@ -16,33 +18,39 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view)
 
         binding.loginBtn.setOnClickListener {
-            checkData()
+            if (dataIsCorrect())
+                logIn()
+
         }
 
     }
 
-    private fun checkData() {
-        if (!isRightUserName()) {
+    private fun dataIsCorrect(): Boolean {
+
+        // check username
+        val inputUsername = binding.username.text.toString()
+        if (!DefaultPerson.checkUsername(inputUsername)) {
             Toast.makeText(requireContext(), R.string.invalid_username, Toast.LENGTH_LONG).show()
-            return
+            return false
         }
 
-        if (!isRightPassword()) {
+        // check password
+        val inputPassword = binding.password.text.toString()
+        if (!DefaultPerson.checkPassword(inputPassword)) {
             Toast.makeText(requireContext(), R.string.invalid_password, Toast.LENGTH_LONG).show()
-            return
+            return false
         }
 
-        logIn()
-
+        return true
     }
 
-    private fun isRightUserName(): Boolean {
-        return binding.username.text.toString() == DefaultData.user_name
-    }
+    /*private fun isRightUserName(): Boolean {
+        return binding.username.text.toString() == DefaultPerson.username
+    }*/
 
-    private fun isRightPassword(): Boolean {
-        return binding.password.text.toString() == DefaultData.password
-    }
+    /*private fun isRightPassword(): Boolean {
+        return binding.password.text.toString() == DefaultPerson.password
+    }*/
 
     private fun logIn() {
         Toast.makeText(requireContext(), "logged in", Toast.LENGTH_LONG).show()

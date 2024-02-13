@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.example.simplebankmanager.LoginFragment"
+        android:name="com.example.simplebankmanager.fragments.LoginFragment"
         android:label="fragment_default"
         tools:layout="@layout/fragment_login">
         <action
@@ -17,9 +17,19 @@
 
     <fragment
         android:id="@+id/MenuFragment"
-        android:name="com.example.simplebankmanager.MenuFragment"
+        android:name="com.example.simplebankmanager.fragments.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_userMenuFragment_to_viewBalanceFragment"
+            app:destination="@+id/ViewBalance" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ViewBalance"
+        android:name="com.example.simplebankmanager.fragments.ViewBalanceFragment"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
 
 
 </navigation>

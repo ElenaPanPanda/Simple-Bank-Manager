@@ -1,11 +1,10 @@
-package com.example.simplebankmanager
+package com.example.simplebankmanager.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.example.simplebankmanager.databinding.FragmentLoginBinding
+import androidx.navigation.fragment.findNavController
+import com.example.simplebankmanager.R
 import com.example.simplebankmanager.databinding.FragmentMenuBinding
 
 
@@ -26,9 +25,15 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding = FragmentMenuBinding.bind(view)
 
         binding.welcomeTv.text = getString(R.string.welcome_username, userName)
+
+        binding.viewBalanceBtn.setOnClickListener {
+            findNavController().navigate(R.id.ViewBalance)
+        }
     }
 
     companion object {
         const val USER_NAME = "username"
     }
+
+
 }

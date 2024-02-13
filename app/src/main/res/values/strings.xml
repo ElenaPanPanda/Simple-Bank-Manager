@@ -15,4 +15,6 @@
     <string name="transfer_funds">TRANSFER FUNDS</string>
     <string name="calculate_exchange">CALCULATE EXCHANGE</string>
     <string name="pay_bills">PAY BILLS</string>
+    <string name="balance">Balance:</string>
+    <string name="current_balance">$%1$s</string>
 </resources>
