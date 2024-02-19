@@ -29,6 +29,10 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding.viewBalanceBtn.setOnClickListener {
             findNavController().navigate(R.id.ViewBalance)
         }
+
+        binding.transferFundsBtn.setOnClickListener {
+            findNavController().navigate(R.id.TransferFunds)
+        }
     }
 
     companion object {
