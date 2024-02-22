@@ -6,8 +6,8 @@ import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
-import com.example.simplebankmanager.AccountNumber
-import com.example.simplebankmanager.EnterAmount
+import com.example.simplebankmanager.transfering.AccountNumber
+import com.example.simplebankmanager.transfering.EnterAmount
 import com.example.simplebankmanager.R
 import com.example.simplebankmanager.databinding.FragmentTransferFundsBinding
 import com.example.simplebankmanager.getFormatted

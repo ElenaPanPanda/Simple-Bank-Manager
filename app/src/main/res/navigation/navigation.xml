@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_userMenuFragment_to_transferFundsFragment"
             app:destination="@id/TransferFunds" />
+        <action
+            android:id="@+id/action_userMenuFragment_to_calculateExchangeFragment"
+            app:destination="@+id/CalculateExchange" />
     </fragment>
 
     <fragment
@@ -39,6 +42,12 @@
         android:name="com.example.simplebankmanager.fragments.TransferFundsFragment"
         android:label="fragment_transfer_funds"
         tools:layout="@layout/fragment_transfer_funds" />
+
+    <fragment
+        android:id="@+id/CalculateExchange"
+        android:name="com.example.simplebankmanager.fragments.CalculateExchangeFragment"
+        android:label="fragment_calculate_exchange"
+        tools:layout="@layout/fragment_calculate_exchange" />
 
 
 </navigation>

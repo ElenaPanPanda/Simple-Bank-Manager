@@ -22,4 +22,15 @@
     <string name="transfer">TRANSFER</string>
     <string name="successful_transfer">Transferred %1$s$ to account %2$s</string>
     <string name="unsuccessful_transfer">Not enough funds to transfer %1$s$$</string>
+    <string name="convert_from">convert from</string>
+    <string name="convert_to">convert to</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="cannot_convert_to_same_currency">Cannot convert to same currency</string>
+    <string name="result_conversion">%1$c%2$s = %3$c%4$s</string>
+
+    <string-array name="currency">
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>USD</item>
+    </string-array>
 </resources>

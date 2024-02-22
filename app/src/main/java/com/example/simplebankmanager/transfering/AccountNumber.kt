@@ -1,4 +1,4 @@
-package com.example.simplebankmanager
+package com.example.simplebankmanager.transfering
 
 import java.lang.NumberFormatException
 

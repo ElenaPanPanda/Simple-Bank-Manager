@@ -33,6 +33,10 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding.transferFundsBtn.setOnClickListener {
             findNavController().navigate(R.id.TransferFunds)
         }
+
+        binding.calculateExchangeBtn.setOnClickListener {
+            findNavController().navigate(R.id.CalculateExchange)
+        }
     }
 
     companion object {

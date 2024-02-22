@@ -1,11 +1,11 @@
 package com.example.simplebankmanager
 
 fun Double.getFormatted(): String {
-    val string = String.format("%.2f", this)
-    return string.replace(',', '.', false)
+    val result = String.format("%.2f", this)
+    return result.replace(',', '.', false)
 }
 
 fun String.getFormatted(): String {
-    val string = this.format("%.2f", this)
-    return string.replace(',', '.', false)
+    val result = String.format("%.2f", this.toDouble())
+    return result.replace(',', '.', false)
 }

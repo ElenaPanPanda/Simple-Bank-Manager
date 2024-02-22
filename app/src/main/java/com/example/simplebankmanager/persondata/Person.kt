@@ -1,6 +1,6 @@
 package com.example.simplebankmanager.persondata
 
-open class Person(
+class Person(
     val username: String,
     val password: String,
     val balance: Balance
