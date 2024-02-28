@@ -28,13 +28,14 @@ class TransferFundsFragment : Fragment(R.layout.fragment_transfer_funds) {
             if (checkInput()) {
 
                 // compare amount to current balance
-                if (inputAmount.enoughFunds(DefaultPerson.balance.get())) {
+                if (DefaultPerson.balance.enoughToPay(inputAmount.amount)) {
                     transfer()
 
                     // back to menu
                     requireActivity().onBackPressedDispatcher.onBackPressed()
                 } else {
-                    val text = getString(R.string.unsuccessful_transfer, inputAmount.amount.getFormatted())
+                    val text =
+                        getString(R.string.unsuccessful_transfer, inputAmount.amount.getFormatted())
                     Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
                 }
 
@@ -73,9 +74,9 @@ class TransferFundsFragment : Fragment(R.layout.fragment_transfer_funds) {
     }
 
     private fun checkAccountNumber(): Boolean {
-        accountNumber = AccountNumber(binding.accountNumberEt.text.toString().getFormatted())
+        accountNumber = AccountNumber(binding.accountNumberEt.text.toString())
 
-        return if (accountNumber.checkAccountNumber()){
+        return if (accountNumber.checkAccountNumber()) {
             true
         } else {
             binding.accountNumberEt.error = "Invalid account number"
@@ -100,7 +101,8 @@ class TransferFundsFragment : Fragment(R.layout.fragment_transfer_funds) {
         val text = getString(
             R.string.successful_transfer,
             inputAmount.amount.getFormatted(),
-            accountNumber.account)
+            accountNumber.account
+        )
 
         Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
     }

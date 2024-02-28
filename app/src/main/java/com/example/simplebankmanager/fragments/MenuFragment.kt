@@ -37,6 +37,10 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         binding.calculateExchangeBtn.setOnClickListener {
             findNavController().navigate(R.id.CalculateExchange)
         }
+
+        binding.payBillsBtn.setOnClickListener {
+            findNavController().navigate(R.id.PayBills)
+        }
     }
 
     companion object {

@@ -11,4 +11,8 @@ class Balance(private var balance: String) {
         balance = result.getFormatted()
     }
 
+    fun enoughToPay(amountToPay: String): Boolean {
+        return amountToPay.toDouble() <= balance.toDouble()
+    }
+
 }

@@ -18,6 +18,5 @@ class EnterAmount(val amount: String) {
         return true
     }
 
-    fun enoughFunds(number: String): Boolean = number.toDouble() >= this.amount.toDouble()
 
 }
