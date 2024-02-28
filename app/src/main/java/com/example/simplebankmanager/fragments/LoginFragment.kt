@@ -1,6 +1,7 @@
 package com.example.simplebankmanager.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
@@ -26,37 +27,42 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun dataIsCorrect(): Boolean {
-
-        // check username
-        val inputUsername = binding.username.text.toString()
-        if (!DefaultPerson.checkUsername(inputUsername)) {
-            Toast.makeText(requireContext(), R.string.invalid_username, Toast.LENGTH_LONG).show()
-            return false
-        }
-
-        // check password
-        val inputPassword = binding.password.text.toString()
-        if (!DefaultPerson.checkPassword(inputPassword)) {
-            Toast.makeText(requireContext(), R.string.invalid_password, Toast.LENGTH_LONG).show()
-            return false
-        }
-
-        return true
+        return checkUserName()
+                &&
+                checkPassword()
     }
 
-    /*private fun isRightUserName(): Boolean {
-        return binding.username.text.toString() == DefaultPerson.username
-    }*/
 
-    /*private fun isRightPassword(): Boolean {
-        return binding.password.text.toString() == DefaultPerson.password
-    }*/
+    private fun checkUserName(): Boolean {
+        Log.d("msg", "In check Username")
+        val inputUsername = binding.usernameEt.text.toString()
+
+        return if (!DefaultPerson.checkUsername(inputUsername)) {
+            val errorText = getString(R.string.invalid_username)
+            Toast.makeText(requireContext(), errorText, Toast.LENGTH_LONG).show()
+            binding.usernameEt.error = errorText
+            false
+        } else true
+    }
+
+    private fun checkPassword(): Boolean {
+        Log.d("msg", "In check password")
+
+        val inputPassword = binding.passwordEt.text.toString()
+        return if (!DefaultPerson.checkPassword(inputPassword)) {
+            val errorText = getString(R.string.invalid_password)
+            Toast.makeText(requireContext(), errorText, Toast.LENGTH_LONG).show()
+            binding.passwordEt.error = errorText
+            false
+        } else true
+    }
+
 
     private fun logIn() {
         Toast.makeText(requireContext(), "logged in", Toast.LENGTH_LONG).show()
 
         val bundle = Bundle()
-        bundle.putString(MenuFragment.USER_NAME, binding.username.text.toString())
+        bundle.putString(MenuFragment.USER_NAME, binding.usernameEt.text.toString())
         findNavController().navigate(R.id.MenuFragment, bundle)
     }
 

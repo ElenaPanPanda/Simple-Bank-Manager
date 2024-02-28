@@ -41,36 +41,12 @@ class TransferFundsFragment : Fragment(R.layout.fragment_transfer_funds) {
 
             }
         }
-
-        // erase error massage
-        binding.accountNumberEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.accountNumberEt.error = null
-            }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
-        // erase error massage
-        binding.amountToTransferEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.amountToTransferEt.error = null
-            }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
     }
 
     private fun checkInput(): Boolean {
-        val isAccountNumberCorrect = checkAccountNumber()
-        val isEnterAmountCorrect = checkAmountToTransfer()
-        return isAccountNumberCorrect
+        return checkAccountNumber()
                 &&
-                isEnterAmountCorrect
+                checkAmountToTransfer()
     }
 
     private fun checkAccountNumber(): Boolean {
