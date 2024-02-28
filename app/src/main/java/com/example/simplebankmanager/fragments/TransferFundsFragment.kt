@@ -1,8 +1,6 @@
 package com.example.simplebankmanager.fragments
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
